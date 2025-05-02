@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use './variables' as *;
+
+// @ name : _mixins.scss
+// @ description : 변수 기반 믹스인을 관리합니다.
+
+// @ prefix : respond
+// @ description : 반응형에 대한 믹스인을 관리합니다.
+// @ example : @include respond-max($breakpoint-desktop) { .... } @include respond-max($breakpoint-mobile) { ... } 
+@mixin respond-max($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin respond-min($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+
+// @ prefix : text
+// @ description : 폰트 가이드에 지정된 사이즈의 믹스인을 관리합니다.
+// @ example : @include text(h1);
+@mixin text($key) {
+  $type: map.get($font-sizes, $key);
+
+  @if $type {
+    font-size: map.get($type, size);
+    line-height: map.get($type, line);
+  } @else {
+    @warn "Undefined text style: #{$key}";
+  }
+}

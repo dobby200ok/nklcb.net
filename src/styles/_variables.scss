@@ -1,0 +1,29 @@
+// @ name : _variables.scss
+// @ description : scss 변수를 관리합니다.
+
+// @ prefix : base
+// @ description : 디자인 가이드 값을 정의합니다.
+
+$base-unit: 4px;
+
+// @ prefix : breakpoint
+// @ description : 반응형 분기점을 변수로 관리합니다.
+
+$breakpoint-mobile: 767px;
+$breakpoint-tablet: 1023px;
+$breakpoint-desktop: 1023px;
+// $breakpoint-desktop: 1279px;
+$breakpoint-wide: 1536px;
+
+// @ prefix : font-sizes
+// @ description : 폰트 사이즈 / 행간에 대한 값을 변수로 관리합니다.
+
+$font-sizes: (
+  h1: (size: 48px, line: 64px),
+  h2: (size: 32px, line: 48px),
+  h3: (size: 24px, line: 36px),
+  h4: (size: 20px, line: 30px),
+  p1: (size: 16px, line: 24px),
+  p2: (size: 14px, line: 20px),
+  p3: (size: 12px, line: 18px),
+);

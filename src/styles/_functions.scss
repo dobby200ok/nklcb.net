@@ -1,0 +1,12 @@
+@use './variables' as *;
+
+// @ name : _functions.scss
+// @ description : 함수 기반 scss를 관리합니다.
+
+
+// @ name : spacing
+// @ description : 여백 단위를 지정된 변수 기준으로 계산합니다.
+// @ example : padding: spacing(4);
+@function spacing($multiplier) {
+  @return $multiplier * $base-unit;
+}

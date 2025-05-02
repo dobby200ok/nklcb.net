@@ -1,0 +1,39 @@
+@use '@/styles/common' as *;
+
+// 에러 페이지
+
+.error-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: var(--color-white);
+
+  .error-page__inner {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    flex-direction: column;
+    gap: spacing(12);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .info-txt {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(6);
+
+    .tit-error {
+      font-weight: 700;
+      @include text(h3);
+    }
+
+    .txt-error {
+      @include text(h4);
+    }
+  }
+}

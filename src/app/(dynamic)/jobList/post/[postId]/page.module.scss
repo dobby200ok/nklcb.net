@@ -1,0 +1,42 @@
+@use '@/styles/common' as *;
+
+.job-content {
+  padding-top: spacing(5);
+  padding-bottom: spacing(30);
+  background-color: var(--color-bg-sky-blue);
+}
+
+.job-content__inner {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.tit-wrap {
+  position: relative;
+}
+
+.page-tit {
+  padding-top: spacing(3);
+  padding-left: spacing(5);
+  padding-right: spacing(5);
+  padding-bottom: spacing(6);
+  font-weight: 700;
+  @include text(h2);
+}
+
+@include respond-max($breakpoint-desktop) {
+  .job-content {
+    padding-top: spacing(4);
+    padding-bottom: spacing(15);
+    background-color: var(--color-bg-sky-blue);
+  }
+
+  .page-tit {
+    padding-top: spacing(3);
+    padding-bottom: spacing(6);
+    font-weight: 700;
+    @include text(h3);
+  }
+
+}

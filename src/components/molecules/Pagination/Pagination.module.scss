@@ -1,0 +1,116 @@
+@use '@/styles/common' as *;
+
+.box-pagination {
+  margin-top: spacing(9);
+}
+
+.box-pagination__inner {
+  position: relative;
+  text-align: center;
+}
+
+.list-pagination {
+  display: inline-block;
+  @include text(p1);
+  margin: 0 auto;
+  overflow: hidden;
+
+  li {
+    display: inline-block;
+    @include text(p1);
+
+    & + li {
+      margin-left: spacing(2);
+    }
+  }
+}
+
+.page--active {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-white);
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  color: var(--color-naver-green);
+  border-radius: 8px;
+  border: 1px solid var(--color-naver-green);
+}
+
+.link-page {
+  display: block;
+  width: 32px;
+  height: 32px;
+  text-decoration: none;
+  color: var(--color-mid-gray);
+  line-height: 32px;
+  text-align: center;
+}
+
+.btn-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &.btn-prev {
+    left: 102px;
+  }
+
+  &.btn-next {
+    right: 102px;
+  }
+}
+
+.btn-move {
+  display: flex;
+  gap: spacing(2);
+  align-items: center;
+  padding: 0;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+
+  .txt-btn {
+    @include text(p3);
+    color: var(--color-black);
+  }
+}
+
+
+@include respond-max($breakpoint-mobile) {
+  .btn-move {
+  
+    .txt-btn {
+      display: none;
+    }
+  }
+}
+
+
+@include respond-max($breakpoint-desktop) {
+  .btn-wrap {
+  
+    &.btn-prev {
+      left: 0px;
+    }
+  
+    &.btn-next {
+      right: 0px;
+    }
+  }
+
+  .page--active {
+    background-color: var(--color-naver-green);
+    color: var(--color-white);
+    border-radius: 0;
+    border: none;
+  }
+  
+  .link-page {
+    background-color: var(--color-gray);
+    color: var(--color-deep-gray);
+  }
+  
+}

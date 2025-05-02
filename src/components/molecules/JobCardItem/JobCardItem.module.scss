@@ -1,0 +1,298 @@
+@use '@/styles/_common' as *;
+
+.job-card {
+  display: block;
+  height: 128px;
+  background-color: var(--color-white);
+  border-radius: 12px;
+
+  .job-card__inner {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding-top: spacing(3);
+    padding-bottom: spacing(3);
+    padding-left: spacing(4);
+    padding-right: spacing(4);
+    box-sizing: border-box;
+  }
+}
+
+.link-job {
+  text-decoration: none;
+  color: var(--color-black);
+}
+
+.company-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 140px;
+
+  .company {
+    font-weight: bold;
+    @include text(h3);
+
+    &--naver {
+      color: var(--color-naver-green)
+    }
+    &--kakao {
+      color: var(--color-kakao-yellow)
+    }
+    &--line {
+      color: var(--color-line-green)
+    }
+    &--coupang {
+      color: var(--color-coupang-red)
+    }
+    &--baemin {
+      color: var(--color-baemin-blue)
+    }
+    &--daangn {
+      color: var(--color-daangn-orange)
+    }
+    &--toss {
+      color: var(--color-toss-blue)
+    }
+  }
+
+  &.company-wrap--pc {
+    display: flex;
+  }
+
+  &.company-wrap--mobile {
+    display: none;
+  }
+}
+
+.job-card__info {
+  display: flex;
+  overflow: hidden;
+  min-width: 0;
+  flex: 1;
+  
+  &.job-card__info--visited {
+
+    .job-tit,
+    .link-job,
+    .detail-list li,
+    .info-list {
+      color: var(--color-mid-gray);
+    }
+
+    .emph-txt {
+      font-weight: 700;
+      color: var(--color-red);
+    }
+
+  }
+
+  &.job-card__info--closed {
+
+    .job-tit {
+      text-decoration: line-through;
+    }
+
+    .job-tit,
+    .link-job,
+    .detail-list li,
+    .info-list {
+      color: var(--color-mid-gray);
+    }
+
+    .emph-txt {
+      font-weight: 700;
+      color: var(--color-red);
+    }
+
+  }
+}
+
+.main-info {
+  display: flex;
+  overflow: hidden;
+  min-width: 0;
+  flex: 1;
+  padding: 9px 12px;
+  flex-direction: column;
+  gap: spacing(2);
+  justify-content: center;
+}
+
+.badge-wrap { 
+  display: block;
+}
+
+.job-tit {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  font-weight: 700;
+  @include text(h4);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.detail-info {
+  display: block;
+}
+
+.detail-list {
+  display: block;
+  li {
+    display: inline-block;
+    position: relative;
+    @include text(p2);
+    color: var(--color-deep-gray);
+
+    & + li {
+      padding-left: spacing(6);
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        width: 1px;
+        height: 10px;
+        background-color: var(--color-mid-gray);
+        transform: translateY(-50%);
+        border-radius: 0.5;
+      }
+    }
+  }
+  
+  .list-item--mobile{
+    display: none;
+  }
+}
+
+.sub-info {
+  width: 124px;
+  padding-left: spacing(2);
+}
+
+.btn-wrap {
+  display: flex;
+  padding-bottom: spacing(5);
+  justify-content: end;
+}
+
+.btn-scrap {
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+
+.info-box {
+  width: 100%;
+}
+
+.info-list {
+  width: 100%;
+  @include text(p3);
+  color: var(--color-deep-gray);
+
+  div {
+    display: flex;
+    width: 100%;
+    gap: spacing(2);
+    justify-content: space-between;
+    & + div {
+      padding-top: spacing(2);
+    }
+  }
+
+  dt { 
+    width: 48px;
+  }
+
+  dd {
+    text-align: right;
+  }
+}
+
+.emph-txt {
+  font-weight: 700;
+  color: var(--color-red);
+}
+
+
+@include respond-max($breakpoint-desktop) {
+  .job-card {
+    height: auto;
+  
+    .job-card__inner {
+      display: block;
+      height: 100%;
+      padding-top: spacing(3);
+      padding-bottom: spacing(3);
+      padding-left: spacing(4);
+      padding-right: spacing(4);
+      box-sizing: border-box;
+    }
+  }
+
+  
+  .main-info {
+    padding: 0;
+    gap: spacing(1);
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    padding-right: spacing(10);
+    gap: spacing(3);
+    margin-bottom: spacing(2);
+  }
+  
+  .company-wrap {
+
+    .company {
+      @include text(p2);
+    }
+    
+    &.company-wrap--pc {
+      display: none;
+    }
+
+    &.company-wrap--mobile {
+      display: block;
+      width: auto
+    }
+  }
+
+  .job-tit {
+    @include text(p1);
+  }
+
+  .detail-list {
+    li {
+      @include text(p3);
+    }
+    .list-item--mobile{
+      display: inline-block;
+    }
+  }
+
+  .sub-info {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .info-box{
+    display: none;
+  }
+
+  .btn-wrap {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+  }
+}

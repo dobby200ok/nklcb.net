@@ -1,0 +1,32 @@
+@use '@/styles/common' as *;
+
+.list-result {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+}
+
+.empty-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 344px);
+  gap: spacing(6);
+  align-items: center;
+}
+
+.txt-empty {
+  @include text(p1);
+  text-align: center;
+  color: var(--color-font-gray);
+}
+
+@include respond-max($breakpoint-desktop) {
+
+  .empty-page {
+    min-height: calc(100vh - 310px);
+  }
+  .txt-empty {
+    @include text(p2);
+  }
+}

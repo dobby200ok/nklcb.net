@@ -1,0 +1,26 @@
+@use '@/styles/common' as *;
+
+.tit-section {
+  font-weight: 700;
+  @include text(h2);
+
+  &--left {
+    text-align: left;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--right {
+    text-align: right;
+  }
+}
+
+
+@include respond-max($breakpoint-desktop) {
+  .tit-section {
+    font-weight: 700;
+    @include text(h3);
+  }
+}

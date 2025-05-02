@@ -1,0 +1,105 @@
+@use '@/styles/common' as *;
+
+
+.slide-item {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+  padding-top: spacing(6);
+  padding-bottom: spacing(6);
+  padding-left: spacing(9);
+  padding-right: spacing(9);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray);
+  border-radius: 24px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+.company {
+  font-weight: 700;
+  @include text(p1);
+
+  &--naver {
+    color: var(--color-naver);
+  }
+  &--kakao {
+    color: var(--color-kakao);
+  }
+  &--line {
+    color: var(--color-line);
+  }
+  &--coupang {
+    color: var(--color-coupang);
+  }
+  &--baemin {
+    color: var(--color-baemin);
+  }
+  &--daangn {
+    color: var(--color-daangn);
+  }
+  &--toss {
+    color: var(--color-toss);
+  }
+}
+
+.tit-job {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+  @include text(h4);
+  color: var(--color-black);
+}
+
+.list-info {
+  @include text(p2);
+  color: var(--color-deep-gray);
+
+  li {
+    position: relative;
+    display: inline-block;
+
+    & + li {
+      padding-left: spacing(6);
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 1px;
+        height: 10px;
+        left: spacing(3);
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: var(--color-mid-gray);
+        border-radius: .5px;
+      }
+    }
+  }
+}
+
+
+@include respond-max($breakpoint-desktop) {
+  .slide-item {
+    gap: spacing(2);
+    padding-top: spacing(4);
+    padding-bottom: spacing(4);
+    padding-left: spacing(5);
+    padding-right: spacing(5);
+    border-radius: 16px;
+  }
+
+  .company {
+    @include text(p2);
+  }
+  
+  .tit-job {
+    @include text(p1);
+  }
+  
+  .list-info {
+    @include text(p3);
+  }  
+}

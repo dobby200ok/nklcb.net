@@ -1,0 +1,17 @@
+@use '@/styles/common' as *;
+
+
+.list-tab {
+  display: flex;
+  gap: spacing(3);
+}
+
+@include respond-max($breakpoint-desktop) {
+
+  .list-tab {
+    display: flex;
+    gap: spacing(2);
+    overflow-y: auto;
+  }
+  
+}

@@ -1,0 +1,93 @@
+@use '@/styles/common' as *;
+
+.section-keyword {
+  padding-top: spacing(16);
+  padding-bottom: spacing(20);
+  border-bottom: 1px solid var(--color-gray);
+}
+
+.area-tit {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(6);
+  padding-left: spacing(12);
+  padding-right: spacing(12);
+  align-items: center;
+}
+
+.area-tabpanel {
+  position: relative;
+  padding-top: spacing(16);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    width: 48px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: linear-gradient(270deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 99;
+    width: 100px;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  }
+}
+
+
+.btn-wrap {
+  display: flex;
+  padding-top: spacing(12);
+  justify-content: center;
+}
+
+.btn-link {
+  display: flex;
+  gap: spacing(3);
+  align-items: center;
+  padding-left: spacing(12);
+  padding-right: spacing(9);
+  @include text(h3);
+  line-height: 64px;
+  text-decoration: none;
+  color: white;
+  background-color: var(--color-black);
+  border-radius: 12px;
+}
+
+@include respond-max($breakpoint-desktop) {
+
+  .section-keyword {
+    padding-top: spacing(12);
+    padding-bottom: spacing(15);
+  }
+  
+  .area-tit {
+    gap: spacing(4);
+    padding-left: spacing(5);
+    padding-right: spacing(5);
+  }
+  
+  .btn-wrap {
+    display: block;
+    padding-top: spacing(12);
+    padding-left: spacing(5);
+    padding-right: spacing(5);
+  }
+  
+  .btn-link {
+    justify-content: center;
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+    @include text(h4);
+    line-height: 64px;
+  }
+}

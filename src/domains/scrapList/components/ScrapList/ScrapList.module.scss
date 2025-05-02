@@ -1,0 +1,52 @@
+@use '@/styles/common' as *;
+
+.list-result {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.empty-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: calc(100vh - 284px);
+  gap: 24px;
+  align-items: center;
+
+  .txt-empty {
+    @include text(p1);
+    text-align: center;
+    color: var(--color-font-gray);
+  }
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0 48px;
+  line-height: 64px;
+  font-size: 24px;
+  border-radius: 12px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@include respond-max($breakpoint-desktop) {
+
+  .empty-page {
+    min-height: calc(100vh - 310px);
+    .txt-empty {
+      @include text(p2);
+    }
+  }
+
+  .btn-link {
+    padding: 0 32px;
+    line-height: 48px;
+    font-size: 20px;
+    border-radius: 8px;
+  }
+}

@@ -1,0 +1,251 @@
+@use '@/styles/common' as *;
+
+.modal-filter {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.modal-content {
+  padding-top: spacing(5);
+  padding-bottom: spacing(5);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-deep-gray); 
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+  }
+}
+
+.box-error {
+  display: flex;
+  padding-top: spacing(2);
+  padding-bottom: spacing(2);
+  padding-left: spacing(3);
+  padding-right: spacing(3);
+  gap: spacing(2);
+  margin-top: spacing(2);
+  margin-bottom: spacing(2);
+  margin-left: spacing(0);
+  margin-right: spacing(0);
+  min-height: 24px;
+  background-color: rgba(224, 49, 31, .4);
+  border-radius: 8px;
+
+  .txt-error {
+    flex: 1;
+    text-align: left;
+    color: var(--color-coupang-red);
+    @include text(p1);
+  }
+}
+
+.filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: spacing(3);
+}
+
+.grp-option {
+  display: flex;
+
+  dt{
+    position: relative;
+    width: 124px;
+    padding-left: spacing(5);
+    font-weight: 700;
+    @include text(h3);
+    color: var(--color-mid-gray);
+    text-align: left;
+  }
+
+  dd{
+    flex: 1;
+  }
+}
+
+.list-option {
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  gap: spacing(2);
+}
+
+.btn-option {
+  display: flex;
+  align-items: center;
+  height: 31px;
+  padding-top: spacing(1);
+  padding-bottom: spacing(1);
+  padding-left: spacing(2);
+  padding-right: spacing(2);
+  background-color: transparent;
+  border: none;
+  border-radius: 4px;
+  @include text(p1);
+  color: var(--color-mid-gray);
+  cursor: pointer;
+
+  &--active {
+    background-color: var(--color-bg-sky-blue);
+    color: var(--color-toss-blue);
+  }
+
+  &--naver{
+    background-color: var(--color-naver-green);
+    color: var(--color-white);
+  }
+  
+  &--kakao{
+    background-color: var(--color-kakao-yellow);
+    color: var(--color-black);
+  }
+  
+  &--line{
+    background-color: var(--color-line-green);
+    color: var(--color-white);
+  }
+  
+  &--coupang{
+    background-color: var(--color-coupang-red);
+    color: var(--color-white);
+  }
+  
+  &--baemin{
+    background-color: var(--color-baemin-blue);
+    color: var(--color-black);
+  }
+
+  &--daangn{
+    background-color: var(--color-daangn-orange);
+    color: var(--color-white);
+  }
+
+  &--toss{
+    background-color: var(--color-toss-blue);
+    color: var(--color-white);
+  }
+}
+
+.grp-option-tab {
+  display: flex;
+  overflow: hidden;
+  flex-direction: row;
+  width: 200%;
+  transition: .5s;
+  transform: translateX(0);
+  padding: 0;
+
+  dt {
+    padding-left: spacing(5);
+
+    .btn-backward {
+      position: absolute;
+      top: 0;
+      left: -10px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  dd {
+    flex: none;
+    width: calc(50% - 144px);
+  }
+
+  &--active {
+    transform: translateX(-50%);
+  }
+}
+
+.btn-submit {
+  width: 100%;
+  height: 64px;
+  border: none;
+  border-radius: 12px 12px 24px 24px;
+  background-color: rgba(3, 199, 90, .4);
+  color: rgba(3, 199, 90, 1);
+  font-weight: 700;
+  @include text(h3);
+  cursor: pointer;
+}
+
+@include respond-max($breakpoint-desktop) {
+  
+  .modal-content {
+    padding-top: spacing(4);
+    padding-bottom: spacing(4);
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+    }
+  }
+
+  .box-error {
+    padding-top: spacing(1);
+    padding-bottom: spacing(1);
+    padding-left: spacing(2);
+    padding-right: spacing(2);
+    margin-top: spacing(1);
+    margin-bottom: spacing(1);
+  
+  }
+  
+
+  .filter-list {
+    display: flex;
+    flex-direction: column;
+    gap: spacing(3);
+  }
+  
+  .grp-option {
+  
+    dt{
+      width: 80px;
+      @include text(h4);
+    }
+  
+  }
+
+  
+  .list-option {
+    gap: spacing(2);
+  }
+
+  .btn-option {
+    height: 32px;
+    @include text(p2);
+  }
+
+  .grp-option-tab {
+  
+    dd {
+      width: calc(50% - 100px);
+    }
+  
+  }
+  
+  .btn-submit {
+    height: 48px;
+    border-radius: 8px 8px 20px 20px;
+    @include text(h4);
+  }
+}

@@ -1,0 +1,23 @@
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  border-radius: 12px;
+
+  &--blue {
+    background-color: var(--color-sky-blue);
+    color: var(--color-blue);
+  }
+
+  &--red {
+    background-color: var(--color-bg-red);
+    color: var(--color-red);
+  }
+  
+  &--gray {
+    background-color: var(--color-bg-gray);
+    color: var(--color-font-gray);
+  }
+}

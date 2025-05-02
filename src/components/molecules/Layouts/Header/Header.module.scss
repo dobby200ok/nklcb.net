@@ -1,0 +1,135 @@
+@use '@/styles/common' as *;
+
+.header { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  z-index: 999;
+  width: 100%;
+  height: 60px;
+  background-color: #fff;
+  
+  .header__inner {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    padding-left: spacing(6);
+    padding-right: spacing(6);
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  width: 118px;
+  height: 20px;
+}
+
+.nav {
+  display: block;
+}
+
+.nav-list {
+  @include text(p1);
+
+  li {
+    display: inline-block;
+  }
+}
+
+.nav-link {
+  display: block;
+  padding-left: spacing(6);
+  padding-right: spacing(6);
+  text-decoration: none;
+  color: var(--color-mid-gray);
+
+  &--active {
+    
+    &.nav-link--jobList {
+      color: var(--color-naver-green);
+    }
+
+    &.nav-link--scrapList {
+      color: var(--color-kakao-yellow);
+    }
+  }
+}
+
+
+@include respond-max($breakpoint-desktop) {
+
+  .logo {
+    display: flex;
+    align-items: center;
+    height: 52px;
+  }
+
+  .header{
+    height: auto;
+
+    .header__inner {
+      padding-top: spacing(2);
+      padding-left: spacing(5);
+      padding-right: spacing(5);
+      flex-direction: column;
+      align-items: inherit;
+    }
+
+  }
+
+  .nav-list {
+    display: flex;
+    margin: 0 -20px;
+    gap: 0;
+
+    li {
+      flex: 1;
+      text-align: center;
+    }
+  }
+
+  .nav-link {
+    position: relative;
+    line-height: spacing(8);
+    box-sizing: border-box;
+    padding-bottom: spacing(2);
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--color-gray);
+    }
+
+    &--active {
+      font-weight: 700;
+
+      &.nav-link--jobList {
+        color: var(--color-black);
+      }
+  
+      &.nav-link--scrapList {
+        color: var(--color-black);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--color-black);
+      }
+
+    }
+  }
+}

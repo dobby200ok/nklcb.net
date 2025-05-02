@@ -1,0 +1,113 @@
+@use '@/styles/common' as *;
+
+:root {
+  --color-black: #0D0D0D;
+  --color-font-gray: #888888;
+  --color-deep-gray: #514F5A;
+  --color-mid-gray: #BEBEBE;
+  --color-gray: #D9D9D9;
+  --color-bg-gray: #F1F1F1;
+  --color-bg-red: #FFF2F0;
+  --color-red: #FF5651;
+  --color-blue: #3866FF;
+  --color-sky-blue: #EDF4FF;
+  --color-bg-sky-blue: #F5F6FA;
+  --color-white: #fff;
+  --color-naver-green: #03C75A;
+  --color-kakao-yellow: #FAE100;
+  --color-line-green: #07B53B;
+  --color-coupang-red: #E0311F;
+  --color-baemin-blue: #2BC2BC;
+  --color-daangn-orange: #FF6F0E;
+  --color-toss-blue: #0064FF; 
+  --color-naver: #03C75A;
+  --color-kakao: #FAE100;
+  --color-line: #07B53B;
+  --color-coupang: #E0311F;
+  --color-baemin: #2BC2BC;
+  --color-daangn: #FF6F0E;
+  --color-toss: #0064FF; 
+}
+
+/* 
+   http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+html {
+  font-size: 62.5%;
+  min-width: 320px;
+}
+body {
+  font-size: 1.4rem;
+	line-height: 1.2;
+  color: var(--color-black);
+  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', '맑은 고딕', sans-serif;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+textarea:placeholder-shown {
+  overflow: visible;
+}
+
+.blind{
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+}
+
+.content{
+  padding-top: 60px;
+}
+
+.swiper-wrapper {
+	transition-timing-function: linear !important;
+}
+
+@include respond-max($breakpoint-desktop) {
+  .content{
+    padding-top: 100px;
+  }
+}
