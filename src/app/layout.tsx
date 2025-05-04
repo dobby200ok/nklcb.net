@@ -9,6 +9,8 @@ import className from "@/constants/className";
 import Header from "@/components/molecules/Layouts/Header";
 import Footer from "@/components/molecules/Layouts/Footer";
 
+import DirectLink from "@/components/molecules/DirectLink";
+
 import { GoogleAnalytics } from '@next/third-parties/google'
 
 const notoSansKr = Noto_Sans_KR({
@@ -80,6 +82,7 @@ export default function RootLayout({
       <body className={ `${notoSansKr.className}` }>
         <Providers>
           <div className="wrapper">
+            <DirectLink />
             <Header />
             <div className="content">
               <article>
