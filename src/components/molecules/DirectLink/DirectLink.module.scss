@@ -1,0 +1,24 @@
+.dir-link {
+  position: relative;
+  z-index: 3000
+}
+
+.dir-link a {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 138px;
+  border: 1px solid var(--color-white);
+  background: var(--color-deep-gray);
+  text-align: center;
+  opacity: 0
+}
+
+.dir-link a:focus,
+.dir-link a:active {
+  top: 0;
+  text-decoration: none;
+  z-index: 1000;
+  opacity: 1;
+  color: var(--color-white);
+}
