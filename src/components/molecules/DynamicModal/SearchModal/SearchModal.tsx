@@ -44,6 +44,7 @@ const SearchModal = () => {
                         height={ 32 }
                         fill='#bebebe' />
             <input {...register('keyword')}
+                   type="text"
                    className={ classNames( s['inp-txt'] ) }
                    placeholder='검색어를 입력해 주세요.' />
           </label>

@@ -6,6 +6,8 @@
 
 import s from './DynamicModal.module.scss';
 import { useState, useEffect, useRef, ReactNode } from "react";
+import { useResize } from '@/hooks/useResize';
+import FocusTrapDynamicModal from './FocusTrapDynamicModal';
 
 import classNames from "classnames";
 
@@ -19,11 +21,12 @@ const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, 
 
   const [renderComplated, setRenderComplated] = useState<boolean>(false),
         [size, setSize] = useState<{ width: number, height: number | string}>({ width: 112, height: 24 }),
-        virtualDOM = useRef<HTMLDivElement>(null);
+        virtualDOM = useRef<HTMLDivElement>(null),
+        { innerSize } = useResize();
 
   useEffect(() => {
     setRenderComplated(false);
-  }, [type, children]);
+  }, [type, children, innerSize]);
 
   useEffect(() => {
     if (! renderComplated && virtualDOM.current) {
@@ -57,7 +60,7 @@ const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, 
             }}>
         <div className={ classNames( s['dynamic-modal__inner'], (active && renderComplated) && s['dynamic-modal__inner--active'] ) }>
           {
-            ( active && renderComplated ) && children
+            ( active && renderComplated ) && <FocusTrapDynamicModal>{ children }</FocusTrapDynamicModal>
           }
         </div>
       </div>

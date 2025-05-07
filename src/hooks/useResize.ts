@@ -14,7 +14,7 @@ interface SizeProps {
 export const useResize = (optimization: 'debounce' | 'throttle' = 'debounce', time: number = 300) => {
 
   const isClient = typeof window !== 'undefined',
-        [size, setSize] = useState<SizeProps>({ 
+        [innerSize, setInnerSize] = useState<SizeProps>({ 
           width: isClient ? window.innerWidth : 0,
           height: isClient ? window.innerHeight : 0
         });
@@ -24,7 +24,7 @@ export const useResize = (optimization: 'debounce' | 'throttle' = 'debounce', ti
     if(! isClient) return;
 
     const handleResize = () => {
-      setSize({
+      setInnerSize({
         width: window.innerWidth,
         height: window.innerHeight
       })
@@ -39,7 +39,7 @@ export const useResize = (optimization: 'debounce' | 'throttle' = 'debounce', ti
 
   }, []);
 
-  return { size };
+  return { innerSize };
 }
 
 // @ name : useMobileCheck
@@ -47,8 +47,8 @@ export const useResize = (optimization: 'debounce' | 'throttle' = 'debounce', ti
 
 export const useMobileCheck = () => {
 
-  const { size } = useResize();
+  const { innerSize } = useResize();
 
-  return size.width < breakPoint.desktop;
+  return innerSize.width < breakPoint.desktop;
 
 }
