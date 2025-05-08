@@ -22,11 +22,19 @@ const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, 
   const [renderComplated, setRenderComplated] = useState<boolean>(false),
         [size, setSize] = useState<{ width: number, height: number | string}>({ width: 112, height: 24 }),
         virtualDOM = useRef<HTMLDivElement>(null),
+        [windowInnerWidth, setWindowInnerWidth] = useState<number>(0),
         { innerSize } = useResize();
 
   useEffect(() => {
     setRenderComplated(false);
-  }, [type, children, innerSize]);
+  }, [type, children]);
+
+  useEffect(() => {
+    if(innerSize.width !== windowInnerWidth) {
+      setWindowInnerWidth(innerSize.width);
+      setRenderComplated(false);
+    }
+  }, [innerSize])
 
   useEffect(() => {
     if (! renderComplated && virtualDOM.current) {
