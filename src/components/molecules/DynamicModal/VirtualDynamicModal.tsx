@@ -14,19 +14,28 @@ import classNames from "classnames";
 interface VirtualDynamicModalProps {
   active: boolean;
   type: string;
+  focusTrap: boolean;
   children: ReactNode;
 }
 
-const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, children }) => {
+const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, focusTrap, children }) => {
 
   const [renderComplated, setRenderComplated] = useState<boolean>(false),
         [size, setSize] = useState<{ width: number, height: number | string}>({ width: 112, height: 24 }),
         virtualDOM = useRef<HTMLDivElement>(null),
+        [windowInnerWidth, setWindowInnerWidth] = useState<number>(0),
         { innerSize } = useResize();
 
   useEffect(() => {
     setRenderComplated(false);
-  }, [type, children, innerSize]);
+  }, [type, children]);
+
+  useEffect(() => {
+    if(innerSize.width !== windowInnerWidth) {
+      setWindowInnerWidth(innerSize.width);
+      setRenderComplated(false);
+    }
+  }, [innerSize])
 
   useEffect(() => {
     if (! renderComplated && virtualDOM.current) {
@@ -60,7 +69,9 @@ const VirtualDynamicModal:React.FC<VirtualDynamicModalProps> = ({ active, type, 
             }}>
         <div className={ classNames( s['dynamic-modal__inner'], (active && renderComplated) && s['dynamic-modal__inner--active'] ) }>
           {
-            ( active && renderComplated ) && <FocusTrapDynamicModal>{ children }</FocusTrapDynamicModal>
+            ( active && renderComplated ) && 
+              focusTrap ? <FocusTrapDynamicModal>{ children }</FocusTrapDynamicModal> :
+              children
           }
         </div>
       </div>

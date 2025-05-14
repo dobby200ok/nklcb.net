@@ -40,6 +40,7 @@ export interface JobListItemProps {
     };
     infinity: boolean;
     create: string;
+    createTime: string;
   };
   summaryAI?: string | null;
 }

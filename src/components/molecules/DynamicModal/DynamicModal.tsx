@@ -41,7 +41,8 @@ const DynamicModal = () => {
            onClick={() => hideModal()} />
       {/* 다이나믹 모달 */}
       <VirtualDynamicModal active={ active }
-                           type={ type }>
+                           type={ type }
+                           focusTrap={ dimmed ? true : false }>
         {/* 헤더 */}
         {
           title &&
