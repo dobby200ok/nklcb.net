@@ -38,7 +38,7 @@ const JobCardItem:React.FC<JobListItemProps> = ({ _id, company, title, positionD
     }
 
     // @ desc : 공고의 등록일과 남은 기간을 문자열로 치환
-    const createDate = dateUtils.getTimeAgo( dateUtils.strToDate(date.create) );
+    const createDate = dateUtils.getTimeAgo( dateUtils.strToDate(date.create, date.createTime) );
 
     setCreateDt( createDate );
 
